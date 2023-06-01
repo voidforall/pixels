@@ -17,32 +17,16 @@
  * License along with Pixels.  If not, see
  * <https://www.gnu.org/licenses/>.
  */
-package io.pixelsdb.pixels.parser;
-
-import io.pixelsdb.pixels.common.metadata.MetadataService;
-
-import org.apache.calcite.schema.Schema;
-import org.apache.calcite.schema.SchemaFactory;
-import org.apache.calcite.schema.SchemaPlus;
-
-import java.util.Map;
+package io.pixelsdb.pixels.common.server.rest.request;
 
 /**
- * Factory that creates a PixelsSchema.
+ * @author hank
+ * @create 2023-05-24
  */
-public class PixelsSchemaFactory implements SchemaFactory
+public enum ExecutionHint
 {
-    private static MetadataService metadataService;
-
-    public PixelsSchemaFactory(MetadataService metadataService)
-    {
-        this.metadataService = metadataService;
-    }
-
-    @Override
-    public Schema create(
-            SchemaPlus parentSchema, String name, Map<String, Object> operand)
-    {
-        return new PixelsSchema(name, this.metadataService);
-    }
+    LOW_COST, // prefer lower monetary cost
+    IMMEDIATE, // execute the query immediately
+    ADAPTIVE, // execute the query apatively using Pixel-Turbo
+    SCHEDULED // schedule the query to be executed at a start time
 }
