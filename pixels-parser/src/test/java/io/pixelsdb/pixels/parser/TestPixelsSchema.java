@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * Copyright 2023 PixelsDB.
  *
@@ -19,7 +17,6 @@
  * License along with Pixels.  If not, see
  * <https://www.gnu.org/licenses/>.
  */
->>>>>>> master
 package io.pixelsdb.pixels.parser;
 
 import io.pixelsdb.pixels.common.exception.MetadataException;
